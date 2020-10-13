@@ -13,10 +13,11 @@ export default {
         if (responce.ok) {
           return responce.json();
         }
+        notify.error(responce.status);
       })
       .then(({ hits, total }) => {
         if (total === 0) {
-          console.log('результатов 0');
+          notify.noticeAnyMatches();
         }
         return hits;
       })

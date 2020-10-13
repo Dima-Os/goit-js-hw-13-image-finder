@@ -7,13 +7,21 @@ export default {
     notice({
       title: 'Regular Notice',
       text: "Check me out! I'm a notice.",
-      delay: 200,
+      delay: 500,
     });
   },
   error(data) {
     error({
       title: 'Oh No!',
       text: `${data.message}`,
+      delay: 1500,
+    });
+  },
+  noticeAnyMatches() {
+    notice({
+      title: 'Stickyish Notice',
+      text: "Can't find any matches, try change your request",
+      delay: 1500,
     });
   },
 };

@@ -5,7 +5,7 @@ import renderSearchForm from './js/renderSearchForm';
 import refs from './js/refs';
 import apiService from './js/apiService';
 import { debounce } from 'debounce';
-import notify from './js/notify';
+// import notify from './js/notify';
 import updateMarkup from './js/updateMarkup';
 
 renderSearchForm();
