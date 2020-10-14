@@ -19,8 +19,15 @@ export default {
   },
   noticeAnyMatches() {
     notice({
-      title: 'Stickyish Notice',
+      title: 'Nothing hepens',
       text: "Can't find any matches, try change your request",
+      delay: 1500,
+    });
+  },
+  noticeEmpty() {
+    notice({
+      title: 'Empty imput',
+      text: 'Please imput something',
       delay: 1500,
     });
   },

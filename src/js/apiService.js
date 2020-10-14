@@ -18,11 +18,19 @@ export default {
       .then(({ hits, total }) => {
         if (total === 0) {
           notify.noticeAnyMatches();
+          return;
         }
-        return hits;
+        this.incrementPage();
+        return { hits, total };
       })
       .catch(error => {
         notify.error(error);
       });
+  },
+  incrementPage() {
+    this.currentPage += 1;
+  },
+  resetPage() {
+    this.currentPage = 1;
   },
 };

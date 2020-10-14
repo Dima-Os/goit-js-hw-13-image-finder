@@ -11,6 +11,7 @@ export default () => {
   refs.userInput = document.querySelector('#search-form > input');
   const list = document.createElement('ul');
   list.classList.add('gallery');
+  list.classList.add('row');
   refs.body.insertAdjacentElement('beforeend', list);
   refs.list = document.querySelector('.gallery');
 };
