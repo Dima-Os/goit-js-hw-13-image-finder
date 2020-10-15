@@ -1,4 +1,4 @@
-import { error, alert, notice } from '@pnotify/core';
+import { error, notice, success } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 
@@ -28,6 +28,13 @@ export default {
     notice({
       title: 'Empty imput',
       text: 'Please imput something',
+      delay: 1500,
+    });
+  },
+  noticeSucces() {
+    success({
+      title: 'okay =)',
+      text: 'Your query is successful =)',
       delay: 1500,
     });
   },

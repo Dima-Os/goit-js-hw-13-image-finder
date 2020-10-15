@@ -4,6 +4,7 @@ export default () => {
   const form = document.createElement('form');
   form.classList.add('search-form');
   form.setAttribute('id', 'search-form');
+  form.addEventListener('submit', ev => ev.preventDefault());
   const input = document.createElement('input');
   Object.assign(input, formAttributes);
   form.appendChild(input);

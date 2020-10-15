@@ -1,6 +1,7 @@
 import './scss/styles.scss';
 import 'normalize.css';
 import 'material-design-icons';
+import 'basiclightbox/dist/basicLightbox.min.css';
 import renderSearchForm from './js/renderSearchForm';
 import refs from './js/refs';
 import apiService from './js/apiService';
@@ -13,12 +14,13 @@ renderSearchForm();
 
 const onInputHandler = event => {
   apiService.searchRequest = event.target.value;
-  if (!apiService.searchRequest) {
-    notify.noticeEmpty();
-    return;
-  }
   apiService.resetPage();
   updateMarkup.clearMarkup();
+  if (apiService.searchRequest === '') {
+    notify.noticeEmpty();
+    updateMarkup.clearMarkup();
+    return;
+  }
   apiService.fecthImg().then(({ hits, total }) => {
     updateMarkup.appendMarkup(hits);
     if (total > 12) {
@@ -29,12 +31,10 @@ const onInputHandler = event => {
 };
 
 const onLoadMoreHandler = () => {
-  // window.scrollTo({
-  //   top: document.documentElement.offsetHeight,
-  //   behavior: 'smooth',
-  // });
-  apiService.fecthImg().then(({ hits }) => updateMarkup.appendMarkup(hits));
-  console.log(document.documentElement.offsetHeight);
+  apiService.fecthImg().then(({ hits }) => {
+    updateMarkup.appendMarkup(hits);
+    window.scrollTo(0, document.documentElement.offsetHeight);
+  });
 };
 
 refs.userInput.addEventListener('input', debounce(onInputHandler, 500));

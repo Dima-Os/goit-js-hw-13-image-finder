@@ -18,7 +18,7 @@ export default {
       .then(({ hits, total }) => {
         if (total === 0) {
           notify.noticeAnyMatches();
-          return;
+          return total;
         }
         this.incrementPage();
         return { hits, total };
