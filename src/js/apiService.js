@@ -20,6 +20,7 @@ export default {
           notify.noticeAnyMatches();
           return total;
         }
+        notify.noticeSucces();
         this.incrementPage();
         return { hits, total };
       })
