@@ -32,6 +32,10 @@ const onInputHandler = event => {
 
 const onLoadMoreHandler = () => {
   apiService.fecthImg().then(({ hits }) => {
+    console.log(hits.length);
+    if (hits.length < 12) {
+      refs.loadMoreBtn.remove();
+    }
     updateMarkup.appendMarkup(hits);
     window.scrollTo(0, document.documentElement.offsetHeight);
   });
